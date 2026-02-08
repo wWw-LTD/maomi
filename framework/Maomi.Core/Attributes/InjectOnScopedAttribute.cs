@@ -12,7 +12,7 @@ namespace Maomi;
 /// 将当前类型自动注册到容器中.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
-public class InjectOnScopedAttribute : InjectOnAttribute
+public sealed class InjectOnScopedAttribute : InjectOnAttribute
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="InjectOnScopedAttribute"/> class.

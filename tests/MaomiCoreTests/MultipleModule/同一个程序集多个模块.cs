@@ -5,15 +5,15 @@ using System.Reflection;
 
 namespace MultipleModule;
 
-public class Í¬Ò»¸ö³ÌĞò¼¯¶à¸öÄ£¿é
+public class åŒä¸€ä¸ªç¨‹åºé›†å¤šä¸ªæ¨¡å—
 {
     /*
-     Í¬Ò»¸ö³ÌĞò¼¯ÓĞ¶à¸öÄ£¿éÀà£¬Ã¿¸öÄ£¿éÀà¶¼»áÊµÀı»¯£¬
-     µ«¸Ã³ÌĞò¼¯Ö»É¨ÃèÒ»´Î
+     åŒä¸€ä¸ªç¨‹åºé›†æœ‰å¤šä¸ªæ¨¡å—ç±»ï¼Œæ¯ä¸ªæ¨¡å—ç±»éƒ½ä¼šå®ä¾‹åŒ–ï¼Œ
+     ä½†è¯¥ç¨‹åºé›†åªæ‰«æä¸€æ¬¡
      */
 
     [Fact]
-    public void ³ÌĞò¼¯Ö»É¨ÃèÒ»´Î()
+    public void ç¨‹åºé›†åªæ‰«æä¸€æ¬¡()
     {
         var services = new ServiceCollection();
         var congiguration = new ConfigurationBuilder()
@@ -172,7 +172,7 @@ public class ModuleC : ModuleCore
         InitCount++;
     }
 
-    public override void TypeFilter(Type type)
+    public override void TypeFilter(ServiceContext context, Type type)
     {
         FilterCount++;
     }

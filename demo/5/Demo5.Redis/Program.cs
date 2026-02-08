@@ -1,7 +1,5 @@
 using FreeRedis;
 using Maomi.I18n;
-using Maomi.I18n.Redis;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 
 

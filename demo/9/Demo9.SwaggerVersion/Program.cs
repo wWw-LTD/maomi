@@ -2,37 +2,37 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-// ÅäÖÃ Api °æ±¾ÐÅÏ¢
+// é…ç½® Api ç‰ˆæœ¬ä¿¡æ¯
 builder.Services.AddApiVersioning(setup =>
 {
-	// È«¾ÖÄ¬ÈÏ api °æ±¾ºÅ
+	// å…¨å±€é»˜è®¤ api ç‰ˆæœ¬å·
 	setup.DefaultApiVersion = new ApiVersion(1, 0);
-	// ÓÃ»§ÇëÇóÎ´Ö¸¶¨°æ±¾ºÅÊ±£¬Ê¹ÓÃÄ¬ÈÏ°æ±¾ºÅ
+	// ç”¨æˆ·è¯·æ±‚æœªæŒ‡å®šç‰ˆæœ¬å·æ—¶ï¼Œä½¿ç”¨é»˜è®¤ç‰ˆæœ¬å·
 	setup.AssumeDefaultVersionWhenUnspecified = true;
-	// ÏìÓ¦Ê±£¬ÔÚ header ÖÐ·µ»Ø°æ±¾ºÅ
+	// å“åº”æ—¶ï¼Œåœ¨ header ä¸­è¿”å›žç‰ˆæœ¬å·
 	setup.ReportApiVersions = true;
-	// ´ÓÄÄÀï¶ÁÈ¡°æ±¾ºÅÐÅÏ¢
+	// ä»Žå“ªé‡Œè¯»å–ç‰ˆæœ¬å·ä¿¡æ¯
 	setup.ApiVersionReader =
 	ApiVersionReader.Combine(
 	   new HeaderApiVersionReader("X-Api-Version"),
 	   new QueryStringApiVersionReader("version"));
 });
 
-// ÔÚ swagger ÖÐÏÔÊ¾°æ±¾ÐÅÏ¢£¬
-// ½øÒ»²½Ê¹ÓÃ°æ±¾ºÅ½øÐÐ¸ô·Ö
+// åœ¨ swagger ä¸­æ˜¾ç¤ºç‰ˆæœ¬ä¿¡æ¯ï¼Œ
+// è¿›ä¸€æ­¥ä½¿ç”¨ç‰ˆæœ¬å·è¿›è¡Œéš”åˆ†
 builder.Services.AddVersionedApiExplorer(o =>
 {
-	// »ñÈ¡»òÉèÖÃ°æ±¾²ÎÊýµ½ url µØÖ·ÖÐ
+	// èŽ·å–æˆ–è®¾ç½®ç‰ˆæœ¬å‚æ•°åˆ° url åœ°å€ä¸­
 	o.SubstituteApiVersionInUrl = true;
-	// swagger Ò³ÃæÄ¬ÈÏÌîÈëµÄ°æ±¾ºÅ
+	// swagger é¡µé¢é»˜è®¤å¡«å…¥çš„ç‰ˆæœ¬å·
 	o.DefaultApiVersion = new ApiVersion(1, 0);
-	// ÏÔÊ¾µÄ°æ±¾·Ö×é¸ñÊ½
+	// æ˜¾ç¤ºçš„ç‰ˆæœ¬åˆ†ç»„æ ¼å¼
 	o.GroupNameFormat = "'v'VVV";
 });
 
@@ -43,7 +43,7 @@ builder.Services.AddSwaggerGen(options =>
 	var apiVersionoptions = ioc.GetRequiredService<IOptions<ApiVersioningOptions>>();
 	foreach (var item in apiVersionDescriptionProvider.ApiVersionDescriptions)
 	{
-		// ¸øÃ¿¸ö°æ±¾ºÅ´´½¨ swagger.json 
+		// ç»™æ¯ä¸ªç‰ˆæœ¬å·åˆ›å»º swagger.json 
 		options.SwaggerDoc(item.GroupName, new OpenApiInfo
 		{
 			Version = apiVersionoptions.Value.DefaultApiVersion.ToString(),
@@ -57,7 +57,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
-	// ÅäÖÃ ui
+	// é…ç½® ui
 	app.UseSwaggerUI(options =>
 	{
 		var ioc = app.Services;

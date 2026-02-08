@@ -1,4 +1,4 @@
-﻿using Maomi.Module;
+﻿using Maomi;
 using Maomi.I18n;
 using Maomi.Web.Core;
 using Demo9.ResourceFilter.Controllers;

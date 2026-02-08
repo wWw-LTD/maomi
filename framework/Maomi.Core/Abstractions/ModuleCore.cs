@@ -17,8 +17,9 @@ public abstract class ModuleCore : IModule
     public abstract void ConfigureServices(ServiceContext context);
 
     /// <summary>
-    /// 扫描每个类型时会调用该接口.
+    /// 扫描每个程序集的类型时，会调用此接口.
     /// </summary>
+    /// <param name="context"></param>
     /// <param name="type"></param>
-    public abstract void TypeFilter(Type type);
+    public abstract void TypeFilter(ServiceContext context, Type type);
 }

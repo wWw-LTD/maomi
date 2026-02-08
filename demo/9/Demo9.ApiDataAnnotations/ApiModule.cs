@@ -1,4 +1,4 @@
-﻿using Maomi.Module;
+﻿using Maomi;
 using Maomi.I18n;
 using Maomi.Web.Core;
 
@@ -11,7 +11,7 @@ namespace Demo9.ApiDataAnnotations
         {
             context.Services.AddI18nResource(options =>
             {
-                options.AddJson<ApiModule>("i18n");
+                options.AddJsonDirectory<ApiModule>("i18n");
             });
         }
     }

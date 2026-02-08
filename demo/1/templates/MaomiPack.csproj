@@ -9,7 +9,7 @@
     <Authors>痴者工良</Authors>
     <Description>用于示范 Maomi 框架的模板项目包.</Description>
 
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>$(DotNetTargetFrameworkNet8)</TargetFramework>
    
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>

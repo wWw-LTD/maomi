@@ -186,7 +186,7 @@ public partial class ModuleBuilder
         {
             foreach (var filter in _moduleCoreInstances)
             {
-                filter.TypeFilter(currentType);
+                filter.TypeFilter(_serviceContext, currentType);
             }
 
             if (currentType.IsAssignableTo(typeof(IModule)))

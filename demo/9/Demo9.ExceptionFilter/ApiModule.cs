@@ -1,4 +1,4 @@
-﻿using Maomi.Module;
+﻿using Maomi;
 using Maomi.Web.Core;
 
 namespace Demo9.ExceptionFilter

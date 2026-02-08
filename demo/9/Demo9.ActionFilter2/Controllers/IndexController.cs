@@ -1,6 +1,4 @@
-using Maomi.Web.Core.Filters;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Demo9.ActionFilter2.Controllers
 {
