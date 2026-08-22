@@ -3,6 +3,7 @@ using Maomi;
 
 namespace Demo1.Api;
 
+
 [InjectModule<ApplicationModule>]
 public class ApiModule : IModule
 {
