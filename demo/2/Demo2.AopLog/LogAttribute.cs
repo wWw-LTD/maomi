@@ -8,7 +8,10 @@ public class LogAttribute : ActionAttribute
     {
         Console.WriteLine($"{context.MethodInfo.Name} 函数被执行前");
         foreach (var item in context.MethodValues)
+        {
+
             Console.WriteLine(item.ToString());
+        }
     }
 
     public override object After(AspectContext context)

@@ -3,7 +3,7 @@ using Maomi;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container.ApiController
 
 //使用 API 控制器（Controller）这种模式来处理 HTTP 请求
 builder.Services.AddControllers();
